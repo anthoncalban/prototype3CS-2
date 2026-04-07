@@ -1,20 +1,17 @@
 public class Horse implements Animal {
     private String sound = "Neigh";
-    private String color;
-
-    public Horse() {}
-    public Horse(String color) {
-        this.color = color;
-    }
+    private int id;
 
     @Override
     public Animal clone() {
-        return new Horse(this.color);
+        Horse copy = new Horse();
+        copy.setId(this.id);
+        return copy;
     }
 
     @Override
     public void makeSound() {
-        System.out.println(getType() + " says: " + sound);
+        System.out.println(getType() + " " + id + " says: " + sound);
     }
 
     @Override
@@ -25,5 +22,20 @@ public class Horse implements Animal {
     @Override
     public String getSound() {
         return sound;
+    }
+
+    @Override
+    public String getDescription() {
+        return "A strong animal often used for riding and farm work.";
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,21 +1,17 @@
 public class Sheep implements Animal {
     private String sound = "Baaa";
-    private String food = "Grass";
-    private String name;
-
-    public Sheep() {}
-    public Sheep(String name) {
-        this.name = name;
-    }
+    private int id;
 
     @Override
     public Animal clone() {
-        return new Sheep(this.name);
+        Sheep copy = new Sheep();
+        copy.setId(this.id);
+        return copy;
     }
 
     @Override
     public void makeSound() {
-        System.out.println(getType() + " says: " + sound);
+        System.out.println(getType() + " " + id + " says: " + sound);
     }
 
     @Override
@@ -26,5 +22,20 @@ public class Sheep implements Animal {
     @Override
     public String getSound() {
         return sound;
+    }
+
+    @Override
+    public String getDescription() {
+        return "A gentle farm animal with woolly fleece.";
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }
